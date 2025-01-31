@@ -2,12 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import legacy from '@vitejs/plugin-legacy';
 
-import { defineConfig } from 'vite';
-
-export default defineConfig({
-  base: '/vk-mini-app/',
-});
-
 function handleModuleDirectivesPlugin() {
   return {
     name: 'handle-module-directives-plugin',
@@ -21,14 +15,10 @@ function handleModuleDirectivesPlugin() {
 }
 
 /**
- * Some chunks may be large.
- * This will not affect the loading speed of the site.
- * We collect several versions of scripts that are applied depending on the browser version.
- * This is done so that your code runs equally well on the site and in the odr.
- * The details are here: https://dev.vk.com/mini-apps/development/on-demand-resources.
+ * Конфигурация Vite для работы с GitHub Pages и другими особенностями.
  */
 export default defineConfig({
-  base: './',
+  base: '/vk-mini-app/',  // Путь для GitHub Pages
 
   plugins: [
     react(),
@@ -48,6 +38,6 @@ export default defineConfig({
   },
 
   build: {
-    outDir: 'build',
+    outDir: 'build',  // Директория для сборки
   },
 });
